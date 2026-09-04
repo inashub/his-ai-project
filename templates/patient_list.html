@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Patient Records - HIS Prototype{% endblock %}
+{% block content %}
+    <h1>All Patient Records</h1>
+
+    {% if patients %}
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Date of Birth</th>
+                <th>Suggested Department</th>
+                <th></th>
+            </tr>
+            {% for patient in patients %}
+            <tr>
+                <td>{{ patient.id }}</td>
+                <td>{{ patient.full_name }}</td>
+                <td>{{ patient.date_of_birth }}</td>
+                <td>{{ patient.suggested_department }}</td>
+                <td><a href="{{ url_for('patient_record', patient_id=patient.id) }}">View EPR</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No patients registered yet. <a href="{{ url_for('register') }}">Register one now</a>.</p>
+    {% endif %}
+{% endblock %}

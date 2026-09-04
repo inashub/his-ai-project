@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Register Patient - HIS Prototype{% endblock %}
+{% block content %}
+    <h1>Patient Registration</h1>
+    <p>Fill in the details below. The Hospital Receptionist AI will suggest a
+       department based on the reason for the visit.</p>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST" class="form">
+        <label for="full_name">Full Name *</label>
+        <input type="text" id="full_name" name="full_name" required>
+
+        <label for="date_of_birth">Date of Birth *</label>
+        <input type="date" id="date_of_birth" name="date_of_birth" required>
+
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender">
+            <option value="">Prefer not to say</option>
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" name="phone">
+
+        <label for="chief_complaint">Reason for Visit (Chief Complaint) *</label>
+        <textarea id="chief_complaint" name="chief_complaint" rows="3" required
+                  placeholder="e.g. fever and cough for 2 days"></textarea>
+
+        <button type="submit">Register Patient</button>
+    </form>
+{% endblock %}

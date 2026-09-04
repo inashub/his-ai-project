@@ -1,0 +1,13 @@
+# Ignore the local database file (each person's data stays on their own machine)
+his.db
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore environment/secrets file (used starting a later milestone)
+.env
+
+# Ignore common editor/OS files
+.vscode/
+.DS_Store

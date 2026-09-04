@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Home - HIS Prototype{% endblock %}
+{% block content %}
+    <h1>Welcome to the Intelligent Healthcare Information System</h1>
+    <p>This is Milestone 1: a basic Flask-based HIS with patient registration
+       and Electronic Patient Records (EPR).</p>
+    <p><strong>{{ patient_count }}</strong> patient(s) currently registered.</p>
+
+    <div class="card">
+        <h2>What can you do here?</h2>
+        <ul>
+            <li><a href="{{ url_for('register') }}">Register a new patient</a> — the
+                Hospital Receptionist AI will suggest which department fits their
+                reason for visit.</li>
+            <li><a href="{{ url_for('patient_list') }}">View all patient records</a></li>
+        </ul>
+    </div>
+
+    <p class="disclaimer">
+        Educational prototype only. Do not enter real, identifiable patient information.
+    </p>
+{% endblock %}
